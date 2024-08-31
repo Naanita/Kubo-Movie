@@ -1,0 +1,99 @@
+:root {
+    --p-primary-color: #000;
+    --p-red-color: #E50914;
+}
+
+@font-face {
+    font-family: 'Colverica';
+    src: url('../fonts/coolvetica.otf') format('woff2');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    font-family: 'Colverica', sans-serif;
+}
+
+p{
+    font-family: "Hind Madurai", sans-serif;
+}
+
+::placeholder {
+    font-family: "Hind Madurai", sans-serif;
+}
+
+.gradientBg {
+    inset: 0;
+    z-index: 1;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, #000 0%, rgba(255, 255, 255, 0) 50%);
+}
+
+.gradientBgOnHover{
+    inset: 0;
+    z-index: 1;
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+
+}
+
+.gradientBgOnHover:hover{
+    background: linear-gradient(0deg, #000 0%, rgba(255, 255, 255, 0) 50%);
+    transition: all 0.3s ease-in-out;
+}
+
+
+@media (max-width: 768px) {
+    .gradientBgOnHover {
+        background: linear-gradient(0deg, #000 0%, rgba(255, 255, 255, 0) 50%);
+    }
+}
+
+.bgGlass{
+    background: rgba(255, 255, 255, 0) !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-black-75{
+    background-color: #000000ab;
+}
+.bg-gray-black{
+    background-color:#141414;
+}
+.text-red-N{
+    color: var(--p-red-color);
+}
+.bg-red-N{
+    background-color: var(--p-red-color);
+}
+
+.bg-transparent{
+    background-color: transparent !important;
+}
+
+.whitePlaceholder::placeholder {
+    color: #ffffff;
+}
+
+.outlineInput{
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    background-color: transparent !important;
+}
+
+
+.outlineInput:focus{
+    border: 1px solid #ffffff !important;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+}
