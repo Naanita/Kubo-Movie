@@ -1,6 +1,6 @@
 <template>
-  <div class="card fixed w-full z-50 block lg:hidden">
-    <Menubar class="rounded-none" style="border-radius: 0px; background: #000; border: 0px;">
+  <div class="card fixed w-full z-[900] block lg:hidden">
+    <Menubar class="rounded-none  " style="border-radius: 0px; background: #000; border: 0px;">
       <template #start>
         <a href="/">
           <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
