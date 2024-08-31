@@ -4,19 +4,24 @@ import axios from "axios";
 import BigcardMoreInfo from "~/components/Cards/BigcardMoreInfo.vue";
 import CardSimple from "~/components/Cards/SimpleCard.vue";
 import Breadcrumb from 'primevue/breadcrumb';
+import ConfirmDialog from 'primevue/confirmdialog';
+import ProgressSpinner from 'primevue/progressspinner';
 
 export default {
-    components: { BigcardMoreInfo, CardSimple, Breadcrumb },
+    components: { BigcardMoreInfo, CardSimple, Breadcrumb, ConfirmDialog, ProgressSpinner },
     data() {
         return {
             movieDetail: null,
             movieRecomendations: [],
             home: { icon: 'pi pi-home', url: '/' },
-            items: []
+            items: [],
+            loading: false,
+            error: false
         };
     },
     async created() {
         const route = useRoute();
+        this.loading = true;
         try {
             const { data } = await axios.get(
                 `https://api.themoviedb.org/3/movie/${route.params.movie}?api_key=fd828331f4f9d184851ef546cb39d7fa`
@@ -25,6 +30,7 @@ export default {
             this.updateBreadcrumbs();
         } catch (error) {
             console.error("Error al obtener los datos:", error);
+            this.error = true;
         }
         try {
             const { data } = await axios.get(
@@ -34,6 +40,9 @@ export default {
             this.movieRecomendations = data.results;
         } catch (error) {
             console.error("Error al obtener los datos:", error);
+            this.error = true;
+        } finally {
+            this.loading = false;
         }
     },
     methods: {
@@ -49,9 +58,13 @@ export default {
 </script>
 
 <template>
-    <div>
-        <BigcardMoreInfo :movie="movieDetail" v-if="movieDetail" />
-        <div class="container mx-auto mt-8 min-h-screen">
+    <div class="min-h-screen relative">
+        <ConfirmDialog v-if="error" visible :message="'Error al obtener los datos.'" :accept="() => error = false" />
+            <div class="centeredItem">
+                <ProgressSpinner v-if="loading" />
+            </div>
+        <BigcardMoreInfo :movie="movieDetail" v-if="movieDetail && !loading" />
+        <div class="container mx-auto mt-8 min-h-screen" v-if="!loading && !error">
             <h1 class="text-white text-5xl">Recommended</h1>
             <div class="card flex bg-transparent">
                 <Breadcrumb class="bg-transparent" :home="home" :model="items" />
