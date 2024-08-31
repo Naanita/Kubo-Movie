@@ -1,6 +1,6 @@
 # Nuxt 3 Minimal Starter
 
-# Este es un proyecto inicial minimalista utilizando Nuxt 3.
+Este es un proyecto inicial minimalista utilizando Nuxt 3.
 
 ## Documentación
 
@@ -23,11 +23,13 @@ yarn install
 # bun
 bun install
 
+```
+
 ## Servidor de Desarrollo
 
-Inicia el servidor de desarrollo en http://localhost:3000:
+### Inicia el servidor de desarrollo en http://localhost:3000:
 
-```bash
+```bash 
 # npm
 npm run dev
 
@@ -39,12 +41,13 @@ yarn dev
 
 # bun
 bun run dev
+```
 
 ## Producción
-
-Construye la aplicación para producción:
+### Construye la aplicación para producción:
 
 ```bash
+
 # npm
 npm run build
 
@@ -57,9 +60,12 @@ yarn build
 # bun
 bun run build
 
-Previsualiza localmente la construcción de producción:
+```
+
+### Previsualiza localmente la construcción de producción:
 
 ```bash
+
 # npm
 npm run preview
 
@@ -72,28 +78,36 @@ yarn preview
 # bun
 bun run preview
 
-Consulta la documentación de despliegue para más información.
+```
 
-## Estructura del Proyecto
+### Consulta la documentación de despliegue para más información.
 
-- .gitignore
-- .nuxt/
-- app.vue
-- assets/
-- components/
-- layouts/
-- nuxt.config.ts
-- package.json
-- pages/
-- public/
-- README.md
-- tailwind.config.js
-- tsconfig.json
+# Estructura del Proyecto
 
-## Dependencias
+```bash
+.gitignore
+.nuxt/
+app.vue
+assets/
+components/
+layouts/
+nuxt.config.ts
+package.json
+pages/
+public/
+README.md
+tailwind.config.js
+tsconfig.json
 
-- Nuxt 3
-- Tailwind CSS
-- PrimeVue
-- Axios
-- GSAP
+```
+
+# Dependencias
+```bash
+
+*Nuxt 3
+*Tailwind CSS
+*PrimeVue
+*Axios
+*GSAP
+
+```
